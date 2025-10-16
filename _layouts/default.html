@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    <script type="text/javascript">
+      // ページが読み込まれる前にパスワードチェックを実行
+      (function() {
+        // ▼▼▼ パスワードを "tetsujin" に設定 ▼▼▼
+        const correctPassword = "tetsujin"; 
+        // ▲▲▲ パスワードを "tetsujin" に設定 ▲▲▲
+
+        let inputPassword = prompt("パスワードを入力してください:", "");
+
+        if (inputPassword !== correctPassword) {
+          // パスワードが違う場合、ページの内容を非表示にし、メッセージを表示
+          document.documentElement.innerHTML = `
+            <head>
+              <title>アクセスが拒否されました</title>
+              <meta charset="utf-8">
+              <style>
+                body { font-family: sans-serif; text-align: center; padding: 50px; }
+              </style>
+            </head>
+            <body>
+              <h1>パスワードが違います。</h1>
+            </body>
+          `;
+          // これ以降の処理を停止
+          throw new Error("Incorrect password.");
+        }
+      })();
+    </script>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>
