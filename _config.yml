@@ -10,5 +10,4 @@ github_username: kzkzkn
 theme: minima
 plugins:
   - jekyll-feed
-
 # You can add more configuration options here
