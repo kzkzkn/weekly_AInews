@@ -1,0 +1,14 @@
+# Site settings
+title: Weekly AI News
+description: >- # this means to ignore newlines until "baseurl:"
+  毎週更新！一週間分のAIニュースをコンパクトにお届けします。
+baseurl: "" # the subpath of your site, e.g. /blog. If hosted at the root, leave it empty.
+url: "https://<YOUR_GITHUB_USERNAME>.github.io" # your site's domain
+github_username: <YOUR_GITHUB_USERNAME>
+
+# Build settings
+theme: minima # Jekyllのデフォルトテーマ。デザインをカスタマイズしない場合はこのままでOK。
+plugins:
+  - jekyll-feed
+
+# You can add more configuration options here
