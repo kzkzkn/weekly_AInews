@@ -3,8 +3,8 @@ title: Weekly AI News
 description: >- # this means to ignore newlines until "baseurl:"
   毎週更新！一週間分のAIニュースをコンパクトにお届けします。
 baseurl: "" # the subpath of your site, e.g. /blog. If hosted at the root, leave it empty.
-url: "https://kzkzkn.github.io" # ★ここを修正！
-github_username: kzkzkn             # ★ここを修正！
+url: "https://kzkzkn.github.io" 
+github_username: kzkzkn             
 
 # Build settings
 theme: minima # Jekyllのデフォルトテーマ。デザインをカスタマイズしない場合はこのままでOK。
