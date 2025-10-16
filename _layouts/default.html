@@ -8,14 +8,27 @@
     <script type="text/javascript">
       // ページが読み込まれる前にパスワードチェックを実行
       (function() {
-        // ▼▼▼ パスワードを "tetsujin" に設定 ▼▼▼
-        const correctPassword = "tetsujin"; 
-        // ▲▲▲ パスワードを "tetsujin" に設定 ▲▲▲
+        // localStorageに保存する際のキー（名前）
+        const storageKey = 'passwordVerified';
 
+        // 1. 既に認証済みかチェック
+        if (localStorage.getItem(storageKey) === 'true') {
+          // 認証済みの印があれば、何もしないで処理を終了
+          return;
+        }
+
+        // --- ここから下は、認証されていない場合のみ実行 ---
+
+        // 2. パスワードの入力を求める
+        const correctPassword = "tetsujin";
         let inputPassword = prompt("パスワードを入力してください:", "");
 
-        if (inputPassword !== correctPassword) {
-          // パスワードが違う場合、ページの内容を非表示にし、メッセージを表示
+        // 3. パスワードが正しいかチェック
+        if (inputPassword === correctPassword) {
+          // 正しければ、ブラウザに「認証済み」の印を保存する
+          localStorage.setItem(storageKey, 'true');
+        } else {
+          // 間違っていれば、ページをブロックする（以前と同じ）
           document.documentElement.innerHTML = `
             <head>
               <title>アクセスが拒否されました</title>
@@ -28,7 +41,6 @@
               <h1>パスワードが違います。</h1>
             </body>
           `;
-          // これ以降の処理を停止
           throw new Error("Incorrect password.");
         }
       })();
