@@ -1,0 +1,25 @@
+---
+layout: default
+title: 最新のAIニュース
+---
+
+<div class="home">
+  
+  {%- assign latest_post = site.posts | first -%}
+  {%- if latest_post -%}
+    <h1 class="post-title">{{ latest_post.title | escape }}</h1>
+    <p class="post-meta">{{ latest_post.date | date: "%Y年%m月%d日" }}</p>
+
+    <div class="post-content">
+      {{ latest_post.content }}
+    </div>
+  {%- else -%}
+    <p>まだニュースがありません。</p>
+  {%- endif -%}
+
+  <hr>
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="{{ "/archive.html" | relative_url }}" class="btn">過去のニュース一覧へ &raquo;</a>
+  </div>
+
+</div>
